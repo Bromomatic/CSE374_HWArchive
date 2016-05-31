@@ -1,0 +1,36 @@
+	uintptr_t total_size = 0;
+	uintptr_t total_free = 0;
+	uintptr_t n_free_block = 0;
+
+	void* getmems[6];
+	getmems[0] = getmem(7000);
+	free_list* temp1 = list;
+	printf("Latest allocated thing: %p, Address: %d\n",getmems[0],(uintptr_t)getmems[0]);
+	getmems[1] = getmem(5000);
+	//free_list* temp2 = list;
+	printf("Latest allocated thing: %p, Address: %d\n",getmems[1],(uintptr_t)getmems[1]);
+	getmems[2] = getmem(7000);
+	//free_list* temp3 = list;
+	printf("Latest allocated thing: %p, Address: %d\n",getmems[2],(uintptr_t)getmems[2]);
+	getmems[3] = getmem(4000);
+	//free_list* temp4 = list;
+	printf("Latest allocated thing: %p, Address: %d\n",getmems[3],(uintptr_t)getmems[3]);
+ 
+	freemem(getmems[0]);
+	freemem(getmems[1]);
+	freemem(getmems[2]);
+	freemem(getmems[3]);
+
+	getmems[4] = getmem(8000);
+	printf("Latest allocated thing: %p, Address: %d\n",getmems[4],(uintptr_t)getmems[4]);
+	getmems[5] = getmem(500);
+	printf("Latest allocated thing: %p, Address: %d\n",getmems[5],(uintptr_t)getmems[5]);
+
+	freemem(getmems[4]);
+	freemem(getmems[5]);
+ 
+	//FILE *f = fopen_s("/Users/Tianshu/Desktop/test.txt", "w");
+ 
+	get_mem_stats(&total_size, &total_free, &n_free_block);
+	//print_heap(f);
+    return 0;
