@@ -1,0 +1,13 @@
+Script started on Tue 08 Jan 2013 10:41:11 PM PST
+]0;swstern@klaatu:~[?1034h[swstern@klaatu ~]$ whoami
+swstern
+]0;swstern@klaatu:~[swstern@klaatu ~]$ echo $SHELL
+/bin/bash
+]0;swstern@klaatu:~[swstern@klaatu ~]$ pwd
+/homes/swstern
+]0;swstern@klaatu:~[swstern@klaatu ~]$ uname -a
+Linux klaatu.cs.washington.edu 3.4.2-0cse.1 #9 SMP Thu Sep 27 11:21:05 PDT 2012 x86_64 x86_64 x86_64 GNU/Linux
+]0;swstern@klaatu:~[swstern@klaatu ~]$ exit
+exit
+
+Script done on Tue 08 Jan 2013 10:41:37 PM PST

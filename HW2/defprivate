@@ -1,0 +1,3 @@
+# Shawn Stern, CSE 374 Homework 2, Problem 2
+
+alias private="chmod -R go-rwx"

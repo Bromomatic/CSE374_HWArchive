@@ -1,0 +1,39 @@
+#!/bin/bash
+# Shawn Stern, CSE 374 Homework 2, Problem 4
+
+# Requires at least 2 arguments
+if [ $# -lt 2 ]
+then
+  echo "${0}: script requires at least 2 arguments" 1>&2
+  exit 1
+fi
+
+sum=0
+# First argument is the destination for the dated log
+logfile="$1"
+# Take current date and concatenate to the log
+date >> "$logfile"
+# While we have more than one argument (loop reads the second arg then shifts,
+# could just as easily take $1, shift, then keep reading $1 instead and use -gt 0
+# Personal preference!
+while [ $# -gt 1 ]
+do
+  # If file exists, operate normally, else skip this file, print error, continue.
+  if [ -a "$2" ]
+  then
+    # Concatenate number of lines and filename to the log
+    wc -l "$2" >> "$logfile" 
+    # extract just the number of lines in a variable i
+    i=$(wc -l < "$2")
+    # take the sum of line counts (all previous + current count) 
+    (( sum = $sum + $i ))
+  else
+    echo "file "$2" is invalid, processing remaining files" 1>&2
+  fi
+  shift  
+done
+
+# Now print the total of all line counts to the logfile!
+# If user only submits invalid files, total ends up being 0, yay!
+echo "$sum total" >> "$logfile"
+ 

@@ -1,0 +1,56 @@
+Script started on Thu 07 Feb 2013 10:57:34 AM PST
+]0;swstern@klaatu:~/hw4[?1034h[swstern@klaatu hw4]$ gdb gasp
+[?1034hGNU gdb (GDB) Fedora (7.4.50.20120120-52.fc17)
+Copyright (C) 2012 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /homes/swstern/hw4/gasp...done.
+(gdb) break main
+Breakpoint 1 at 0x400744: file gasp.c, line 19.
+(gdb) brek[Kak 65
+Breakpoint 2 at 0x4008b8: file gasp.c, line 65.
+(gdb) run hello hurr.txt
+Starting program: /homes/swstern/hw4/gasp hello hurr.txt
+
+Breakpoint 1, main (argc=3, argv=0x7fffffffe4a8) at gasp.c:19
+19	  if(argc < 3) {
+Missing separate debuginfos, use: debuginfo-install glibc-2.15-58.fc17.x86_64
+(gdb) print asrgv[K[K[K[Krgv[1]
+$1 = 0x7fffffffe6fb "hello"
+(gdb) continue
+Continuing.
+
+Breakpoint 2, main (argc=3, argv=0x7fffffffe4a8) at gasp.c:67
+67	    if (NULL == my_file) {
+(gdb) bt
+#0  main (argc=3, argv=0x7fffffffe4a8) at gasp.c:67
+(gdb) list
+62	    
+63	    // Use "r" option to just do read.
+64	    FILE* my_file = fopen(argv[i], "r");
+65	    
+66	    // Print error if failure to open, else grep it.
+67	    if (NULL == my_file) {
+68	      printf("Invalid file: %s\n\n", f_name);
+69	    } else {
+70	      find_match(my_file, f_name, string, optn_ptr, opti_ptr);
+71	      fclose(my_file);
+(gdb) print f_name
+$2 = "hurr.txt", '\000' <repeats 91 times>
+(gdb) print my_file
+$3 = (FILE *) 0x601010
+(gdb) continue 
+Continuing.
+hurr.txt hello there
+
+[Inferior 1 (process 7905) exited normally]
+(gdb) quit
+]0;swstern@klaatu:~/hw4[swstern@klaatu hw4]$ exit
+exit
+
+Script done on Thu 07 Feb 2013 10:59:51 AM PST

@@ -1,0 +1,27 @@
+#!/bin/bash
+# Shawn Stern, CSE 374 Homework 2, Problem 3
+
+# Requires at least 2 arguments
+if [ $# -lt 2 ]
+then
+  echo "${0}: script requires at least 2 arguments" 1>&2
+  exit 1
+fi
+
+# If first argument exists already, exit
+if [ -a "$1" ]
+then
+  echo "Error: first file exists" 1>&2
+  exit 1
+fi
+
+# Since we're shifting, grab the name of the file errors will be redirected to
+# before doing any shifts!
+err="$1"
+# While we have more than one argument (which means we have a second argument)...
+while [ $# -gt 1 ]
+do
+  # Print out the second arg, redirect errors to the error file, and shift
+  cat "$2" 2>> "$err"
+  shift
+done

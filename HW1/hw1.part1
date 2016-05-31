@@ -1,0 +1,215 @@
+Script started on Sun 13 Jan 2013 07:14:49 PM PST
+# 1
+]0;swstern@klaatu:~[?1034h[swstern@klaatu ~]$ echo Hello W[Kwork[Kld
+Hello world
+# 2
+]0;swstern@klaatu:~[swstern@klaatu ~]$ passwd
+Changing password for user swstern.
+Changing password for swstern.
+(current) UNIX password: 
+New password: 
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+# 3
+]0;swstern@klaatu:~[swstern@klaatu ~]$ date
+Sun Jan 13 19:15:12 PST 2013
+# 4
+]0;swstern@klaatu:~[swstern@klaatu ~]$ echo $HOME
+/homes/swstern
+# 5 (I'm already in that directory so changing was silly)
+]0;swstern@klaatu:~[swstern@klaatu ~]$ cd /homes/swstern/
+# 6
+]0;swstern@klaatu:~[swstern@klaatu ~]$ ls
+hw0.script  hw1.part1
+# 7
+]0;swstern@klaatu:~[swstern@klaatu ~]$ mkdir temp
+# 8
+]0;swstern@klaatu:~[swstern@klaatu ~]$ mv temp files
+]0;swstern@klaatu:~[swstern@klaatu ~]$ ls
+[0m[01;34mfiles[0m  hw0.script  hw1.part1
+# 9
+]0;swstern@klaatu:~[swstern@klaatu ~]$ cd files
+# 10
+]0;swstern@klaatu:~/files[swstern@klaatu files]$ date > now
+# 11
+]0;swstern@klaatu:~/files[swstern@klaatu files]$ cp now before
+# 12
+]0;swstern@klaatu:~/files[swstern@klaatu files]$ ls -l
+total 8
+-rw-r--r-- 1 swstern ugrad_uw 29 Jan 13 19:15 before
+-rw-r--r-- 1 swstern ugrad_uw 29 Jan 13 19:15 now
+# 13
+]0;swstern@klaatu:~/files[swstern@klaatu files]$ cat > temp
+yey  ay
+test
+more text
+
+a blank line
+# 14
+]0;swstern@klaatu:~/files[swstern@klaatu files]$ mv temp test
+# 15
+]0;swstern@klaatu:~/files[swstern@klaatu files]$ cd ..
+# 16
+]0;swstern@klaatu:~[swstern@klaatu ~]$ rm -rf files/
+# Checked to see if the rm -rf worked and files is gone
+]0;swstern@klaatu:~[swstern@klaatu ~]$ ls
+hw0.script  hw1.part1
+# 17 (mistyped a bit, sorry for all the esc charaters it captured)
+]0;swstern@klaatu:~[swstern@klaatu ~]$ echo It'[K[K\[Kt\'s a secret!\![C > secretfile
+# 18
+]0;swstern@klaatu:~[swstern@klaatu ~]$ chmod -w secretfile
+]0;swstern@klaatu:~[swstern@klaatu ~]$ ls -l
+total 8
+-rw-r--r-- 1 swstern ugrad_uw 507 Jan  8 22:44 hw0.script
+-rw-r--r-- 1 swstern ugrad_uw   0 Jan 13 19:14 hw1.part1
+-r--r--r-- 1 swstern ugrad_uw  15 Jan 13 19:17 secretfile
+# 19 (Tried to use cat to append to the file)
+]0;swstern@klaatu:~[swstern@klaatu ~]$ cat >> secretfile 
+bash: secretfile: Permission denied
+]0;swstern@klaatu:~[swstern@klaatu ~]$ cat >> secretfile ls -l[Kchmod -w secretfile[1P secretfiler secretfile
+# 20
+]0;swstern@klaatu:~[swstern@klaatu ~]$ chmod -r secretfile[1Pat >> secretfile ls -l[K
+total 8
+-rw-r--r-- 1 swstern ugrad_uw 507 Jan  8 22:44 hw0.script
+-rw-r--r-- 1 swstern ugrad_uw   0 Jan 13 19:14 hw1.part1
+---------- 1 swstern ugrad_uw  15 Jan 13 19:17 secretfile
+# 21
+]0;swstern@klaatu:~[swstern@klaatu ~]$ cat secretfile 
+cat: secretfile: Permission denied
+# 22 (according to man uname, -v option makes it list the kernel version)
+]0;swstern@klaatu:~[swstern@klaatu ~]$ uname -v
+#9 SMP Thu Sep 27 11:21:05 PDT 2012
+# 23 (use -e to see every process on machine, according to the examples in man)
+]0;swstern@klaatu:~[swstern@klaatu ~]$ ps -e
+  PID TTY          TIME CMD
+    1 ?        00:00:03 systemd
+    2 ?        00:00:00 kthreadd
+    3 ?        00:00:00 ksoftirqd/0
+    6 ?        00:00:00 migration/0
+    7 ?        00:00:00 migration/1
+    9 ?        00:00:00 ksoftirqd/1
+   11 ?        00:00:00 cpuset
+   12 ?        00:00:00 khelper
+   13 ?        00:00:00 kdevtmpfs
+   14 ?        00:00:00 netns
+   15 ?        00:00:05 sync_supers
+   16 ?        00:00:00 bdi-default
+   17 ?        00:00:00 kblockd
+   18 ?        00:00:00 khubd
+   19 ?        00:00:00 rpciod
+   20 ?        00:00:00 kswapd0
+   21 ?        00:00:00 ksmd
+   22 ?        00:00:00 fsnotify_mark
+   23 ?        00:00:00 nfsiod
+   24 ?        00:00:00 crypto
+   30 ?        00:00:00 kpsmoused
+   32 ?        00:00:00 deferwq
+  166 ?        00:00:00 ata_sff
+  168 ?        00:00:00 scsi_eh_0
+  216 ?        00:00:00 scsi_eh_1
+  217 ?        00:00:00 scsi_eh_2
+  224 ?        00:00:00 scsi_eh_3
+  228 ?        00:00:00 scsi_eh_4
+  230 ?        00:00:00 scsi_eh_5
+  233 ?        00:00:00 scsi_eh_6
+  234 ?        00:00:00 scsi_eh_7
+  235 ?        00:00:00 scsi_eh_8
+  240 ?        00:00:00 kworker/u:9
+  241 ?        00:00:00 kworker/u:10
+  308 ?        00:00:00 jbd2/sda2-8
+  309 ?        00:00:00 ext4-dio-unwrit
+  336 ?        00:00:12 systemd-journal
+  338 ?        00:00:00 kauditd
+  349 ?        00:00:00 udevd
+  394 ?        00:00:00 udevd
+  395 ?        00:00:00 udevd
+  409 ?        00:00:00 vballoon
+  414 ?        00:00:00 hd-audio0
+  442 ?        00:00:00 jbd2/sda4-8
+  443 ?        00:00:00 ext4-dio-unwrit
+  448 ?        00:00:06 jbd2/sda3-8
+  449 ?        00:00:00 ext4-dio-unwrit
+  517 ?        00:00:05 systemd-logind
+  519 ?        00:00:01 rsyslogd
+  626 ?        00:00:00 gpm
+  655 ?        00:00:04 dbus-daemon
+  656 ?        00:00:00 atd
+  661 tty1     00:00:00 agetty
+  726 ?        00:00:00 sshthrottle
+  750 ?        00:00:00 xinetd
+  754 ?        00:00:01 rpcbind
+  791 ?        00:00:00 rpc.statd
+  795 ?        00:00:00 sh
+  831 ?        00:00:00 sendmail
+  837 ?        00:00:07 ntpd
+  894 ?        00:00:00 jbd2/sdc1-8
+  895 ?        00:00:00 ext4-dio-unwrit
+ 2097 ?        00:00:02 crond
+ 2120 ?        00:00:09 automount
+ 2171 ?        00:00:00 sshd
+16496 ?        00:00:00 kworker/1:2
+16737 ?        00:00:05 kworker/1:0
+16803 ?        00:00:02 kworker/1:1
+17386 ?        00:00:00 sshd
+17388 ?        00:00:00 sshd
+17389 pts/0    00:00:00 bash
+19758 ?        00:00:00 kworker/0:2
+19769 ?        00:00:00 script
+19770 pts/4    00:00:00 bash
+19826 ?        00:00:00 kworker/0:1
+19880 ?        00:00:00 flush-8:0
+20186 ?        00:00:00 sshd
+20188 ?        00:00:00 sshd
+20189 pts/2    00:00:00 bash
+21190 ?        00:00:00 sshd
+21195 ?        00:00:00 sshd
+21196 pts/5    00:00:00 bash
+21226 ?        00:00:00 flush-8:32
+21456 ?        00:00:00 sshd
+21458 ?        00:00:00 sshd
+21459 pts/6    00:00:00 bash
+21530 ?        00:00:00 sshd
+21532 ?        00:00:00 sshd
+21533 pts/7    00:00:00 bash
+21563 pts/7    00:00:00 script
+21565 pts/7    00:00:00 script
+21566 pts/8    00:00:00 bash
+21588 ?        00:00:00 sshd
+21591 ?        00:00:00 sshd
+21592 pts/9    00:00:00 bash
+21733 ?        00:00:00 sshd
+21735 ?        00:00:00 sshd
+21736 ?        00:00:00 sftp-server
+22043 ?        00:00:00 sshd
+22048 ?        00:00:00 sshd
+22049 pts/1    00:00:00 bash
+22281 ?        00:00:00 sshd
+22303 ?        00:00:00 sshd
+22304 pts/10   00:00:00 bash
+22514 ?        00:00:00 sshd
+22516 ?        00:00:00 sshd
+22517 pts/13   00:00:00 bash
+22624 pts/1    00:00:00 script
+22626 pts/1    00:00:00 script
+22627 pts/11   00:00:00 bash
+22722 pts/13   00:00:00 script
+22724 pts/13   00:00:00 script
+22725 pts/12   00:00:00 bash
+22789 ?        00:00:00 sshd
+22791 ?        00:00:00 sshd
+22792 pts/15   00:00:00 bash
+22916 pts/15   00:00:00 script
+22918 pts/15   00:00:00 script
+22919 pts/16   00:00:00 bash
+22984 pts/9    00:00:00 script
+22986 pts/9    00:00:00 script
+22987 pts/14   00:00:00 bash
+23064 ?        00:00:00 sshd
+23082 pts/14   00:00:00 ps
+# 24 using grep and super simple regex (just my username)
+]0;swstern@klaatu:~[swstern@klaatu ~]$ grep swstern /etc/passwd
+[01;31m[Kswstern[m[K:x:25569:152::/homes/[01;31m[Kswstern[m[K:/bin/bash
+]0;swstern@klaatu:~[swstern@klaatu ~]$ exit
+exit
+
+Script done on Sun 13 Jan 2013 07:19:14 PM PST

@@ -1,0 +1,32 @@
+1. wc lists the counts for words, newlines, and bytes in each file passed to the command.
+   The -l option makes the output limited to only newline counts.
+
+2. 140  177 6660 /etc/passwd
+
+3. Either type 'ctrl + c' to kill a foreground process, or 'kill' to manage either
+   foreground or background tasks.
+
+4. $HOME stores the location of your home directory
+
+5. $SHELL: stores the path to your shell
+   $PWD: stores the shell's current directory
+
+6. find
+
+7. 'find' searches one or more directories for files matching given criteria (also going 
+   recursively through subdirectories) and lists ALL OF THEM, while 'which' searches for and 
+   finds an executable file in the shell's search path, and shows the full path of only the 
+   FIRST command that it finds that matches the criteria, even if there are more. 
+   (It can even find itself!)
+
+8. "echo Hello World! > something" writes "Hello World!" to a text file named 'something', while
+   "echo Hello World!" simply prints "Hello World!" to the shell.
+
+9. Running that command would overwrite the existing 'something' file and replace it with a new
+   'something' that contained only the text "more text".
+
+10. Running that command would concatenate the line "yet more text" to the existing 'something'
+    file.
+    The result of 'cat something' would be:
+	more text
+	yet more text

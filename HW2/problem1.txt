@@ -1,0 +1,77 @@
+# Shawn Stern, CSE 374 Homework 2, Problem 1
+
+1. echo
+
+I enter the following command into the shell:
+echo -n blotz 2>err.txt
+
+The echo command prints just 'blotz' to the shell. The '2>err.txt' redirects any
+output to stderr to a textfile, so that there is no output to stderr itself.
+
+Output:
+[swstern@klaatu ~]$ echo blotz 2>err.txt
+blotz
+[swstern@klaatu ~]$
+
+
+2. cat
+
+This is accomplished with the following line:
+echo -n blotz | cat 2>err.txt
+
+The output of 'echo blotz' (from part 1 above) is piped into cat, which makes it appear in the shell.
+Once again, 2>err.txt redirects any possible writes to stderr to a textfile instead.
+
+Output:
+[swstern@klaatu ~]$ echo blotz | cat 2>err.txt
+blotz
+[swstern@klaatu ~]$
+
+
+3. ls
+
+This is accomplished with the following lines:
+echo > blotz
+ls blotz 2> err.txt
+
+To use ls, I first create a blank file with the name blotz. I then use 'ls blotz' to only list
+the file named blotz. Again, the 2>err.txt argument is added to redirect errors from stderr to 
+a text file. 
+
+Output:
+[swstern@klaatu ~]$ echo > blotz
+[swstern@klaatu ~]$ ls blotz 2>err.txt
+blotz
+[swstern@klaatu ~]$
+
+
+4. grep
+
+This is accomplished with the following lines:
+echo blotz > blotz.txt
+grep blotz blotz.txt 2>err.txt
+
+In this case, I create a file containing the text 'blotz', then grep for 
+that string in the file. This sends the matching line to stdout, printing just 'blotz'.
+
+Output:
+[swstern@klaatu ~]$ echo blotz > blotz.txt
+[swstern@klaatu ~]$ grep blotz blotz.txt 2>err.txt
+blotz
+[swstern@klaatu ~]$
+
+
+5. !!
+
+For this, we find a command that does nothing at all. In this case, the command 'false' fits the bill.
+Using an alias, we can set the shell such that typing blotz will run false instead. This means that when 
+the !! command is sent, blotz will be printed, followed by nothing at all, which means only blotz
+ends up printed! Again, we make sure to add a redirect so that no errors are printed to the shell,
+and instead go to a file.
+
+Output:
+[swstern@klaatu ~]$ alias blotz='false 2>err.txt'
+[swstern@klaatu ~]$ blotz
+[swstern@klaatu ~]$ !!
+blotz
+[swstern@klaatu ~]$
